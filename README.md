@@ -59,7 +59,7 @@ Some of the benefits the OCP wrapper provides are:
 - Indexes OpenShift metadata along with the Benchmark result. This document can be found with the following query: `uuid: <benchmkark-uuid> AND metricName.keyword: "clusterMetadata"`
 - Prevents modifying configuration files to tweak some of the parameters of the workloads.
 - Discovers the Prometheus URL and authentication token, so the user does not have to perform those operations before using them.
-- Workloads configuration is directly embedded in the binary.
+- Workload configuration is directly embedded in the binary.
 
 Running node-density with 100 pods per node
 
