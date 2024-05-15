@@ -2,7 +2,11 @@ name: Execute tests on OCP
 on:
   workflow_call:
     secrets:
-      OPENSHIFT_KUBECONFIG:
+      OPENSHIFT_SERVER:
+        required: true
+      OPENSHIFT_USER:
+        required: true
+      OPENSHIFT_PASSWORD:
         required: true
 jobs:
   ocp-e2e-ci:
@@ -22,7 +26,6 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: kube-burner-ocp
-        repository: kube-burner/kube-burner-ocp
         path: /tmp/
 
     - name: Install bats
@@ -38,9 +41,11 @@ jobs:
       uses: redhat-actions/oc-installer@v1
 
     - name: Authenticate against OCP cluster
-      run: oc cluster-info
+      run: oc login -u ${OPENSHIFT_USER} -p ${OPENSHIFT_PASSWORD} ${OPENSHIFT_SERVER} --insecure-skip-tls-verify=true
       env:
-        KUBECONFIG: ${{ secrets.OPENSHIFT_KUBECONFIG }}
+        OPENSHIFT_SERVER: ${{ secrets.OPENSHIFT_SERVER }}
+        OPENSHIFT_USER: ${{ secrets.OPENSHIFT_USER }}
+        OPENSHIFT_PASSWORD: ${{ secrets.OPENSHIFT_PASSWORD }}
 
     - name: Execute Tests
       run: |
@@ -49,4 +54,6 @@ jobs:
         make test-ocp
       env:
         TERM: linux
-        KUBECONFIG: ${{ secrets.OPENSHIFT_KUBECONFIG }}
+        OPENSHIFT_SERVER: ${{ secrets.OPENSHIFT_SERVER }}
+        OPENSHIFT_USER: ${{ secrets.OPENSHIFT_USER }}
+        OPENSHIFT_PASSWORD: ${{ secrets.OPENSHIFT_PASSWORD }}
