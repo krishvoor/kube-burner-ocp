@@ -12,8 +12,8 @@ Usage:
   kube-burner-ocp [command]
 
 Available Commands:
-  cluster-density-ms             Runs cluster-density-ms workload
-  cluster-density-v2             Runs cluster-density-v2 workload
+  cluster-density-ms             Runs cluster-density-ms workloads
+  cluster-density-v2             Runs cluster-density-v2 workloads
   cluster-health                 Checks for ocp cluster health
   completion                     Generate the autocompletion script for the specified shell
   crd-scale                      Runs crd-scale workload
