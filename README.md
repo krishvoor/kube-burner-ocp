@@ -5,7 +5,7 @@ This plugin is a very opinionated OpenShift wrapper designed to simplify the exe
 Executed with `kube-burner-ocp`, it looks like:
 
 ```console
-$ kube-burner-ocp help
+$ kube-burner-ocp helpp
 kube-burner plugin designed to be used with OpenShift clusters as a quick way to run well-known workload
 
 Usage:
