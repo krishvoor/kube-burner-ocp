@@ -1,12 +1,12 @@
 # OpenShift Wrapper
 
-This plugin is a very opinionated OpenShift wrapper designed to simplify the execution of different workloads in this Kubernetes distribution.
+This plugin is a very opinionated OpenShift wrapper designed to simplify the execution of different workload in this Kubernetes distribution.
 
 Executed with `kube-burner-ocp`, it looks like:
 
 ```console
 $ kube-burner-ocp help
-kube-burner plugin designed to be used with OpenShift clusters as a quick way to run well-known workloads
+kube-burner plugin designed to be used with OpenShift clusters as a quick way to run well-known workload
 
 Usage:
   kube-burner-ocp [command]
