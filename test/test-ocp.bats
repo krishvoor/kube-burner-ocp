@@ -118,5 +118,3 @@ teardown_file() {
 @test "cluster-health" {
   run_cmd kube-burner-ocp cluster-health
 }
-
-
